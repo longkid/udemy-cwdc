@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>functions</title>
+        <style>
+            .bluebox {
+                background-color: #3B5998;
+                color: white;
+                height: 100px;
+                width: auto;
+            }
+            .yellowbox {
+                background-color: #E0D74F;
+                height: 100px;
+                width: auto;
+            }
+            .greenbox {
+                background-color: #289B35;
+                height: 100px;
+                width: auto;
+            }
+            .great {
+                background-color: aqua;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="bluebox" id="facebook">
+            <p>Facebook is <span class="great">great</span>.</p>
+        </div>
+        <div class="yellowbox" id="apple">
+            <p>Apple.</p>
+        </div>
+        <div class="greenbox" id="microsoft">
+            <p>Microsoft.</p>
+        </div>
+        <button id="button1" onclick="swap('facebook', 'apple')">Swap content of facebook and apple</button>
+        <button id="button2" onclick="swap('apple','microsoft')">Swap content of apple and microsoft</button>
+        
+        <script>
+//            Function has no arguments
+            function greeting1() {
+                window.alert('Hello!');
+            }
+//            greeting1();
+            
+//            Function has an argument
+            function greeting2(firstName) {
+                window.alert('Hello ' + firstName + '!');
+            }
+//            greeting2('Lam');
+            
+            function sum(a, b) {
+                return a + b;
+            }
+            var x = sum(2, 3);
+//            window.alert(x);
+            
+            function swap(id1, id2) {
+                var y = document.getElementById(id1).innerHTML;
+                var z = document.getElementById(id2).innerHTML;
+                document.getElementById(id1).innerHTML = z;
+                document.getElementById(id2).innerHTML = y;
+            }
+        </script>
+    </body>
+</html>
