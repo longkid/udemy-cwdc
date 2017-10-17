@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>arrays</title>
+    </head>
+    <body>
+        <p id="myParagraph">Javascript.</p>
+        
+        <script>
+            var shoppingList = ["bread", "eggs", "milk"];//Should declare an array like this!
+//            var shoppingList = new Array("bread", "eggs", "milk");
+//            document.getElementById("myParagraph").innerHTML = shoppingList;
+            showResult(shoppingList);
+            showResult(shoppingList[0]);
+            showResult(shoppingList[2]);
+            showResult(shoppingList[3]);
+            shoppingList[1] = "yogurt";
+            showResult(shoppingList);
+            shoppingList[2] = "orange";
+            showResult(shoppingList);
+            
+            // delete an item in array
+            delete shoppingList[1];
+            showResult(shoppingList);
+//            window.alert(shoppingList[1]);
+            
+            shoppingList[1] = "yogurt";
+            showResult(shoppingList);
+            
+            // completely delete
+            shoppingList.splice(1, 1);
+            showResult(shoppingList);
+            
+            // add new items
+            shoppingList.splice(1, 0, "banana", "apple");
+            showResult(shoppingList);
+            
+            // sort array
+            shoppingList.sort();
+            showResult(shoppingList);
+            
+            shoppingList.reverse();
+            showResult(shoppingList);
+            
+            // create an array from string
+            var myString = 'What is the weather like?';
+            var myArray = myString.split(' ', 2);
+            showResult(myArray);
+            
+            function showResult(x) {
+                document.getElementById("myParagraph").innerHTML += "<br>" + x;
+            }
+        </script>
+    </body>
+</html>
