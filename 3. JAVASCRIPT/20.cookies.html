@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>cookies</title>
+    </head>
+    <body>
+        <p id="myParagraph">Javascript.</p>
+        <script>
+            document.cookie = "username = longkid";
+            document.cookie = "age = 32";
+            document.cookie = "country = VN";
+            window.alert(document.cookie);
+            var myCookie = document.cookie.split(";");
+            window.alert(myCookie);
+            for(i=0; i<myCookie.length; i++) {
+                document.getElementById("myParagraph").innerHTML += "<br>" + myCookie[i];
+            }
+        </script>
+    </body>
+</html>
