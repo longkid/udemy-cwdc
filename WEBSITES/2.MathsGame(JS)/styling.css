@@ -1,0 +1,45 @@
+
+html {
+    height: 100%;
+    background: radial-gradient(circle, #fff, #ccc);
+}
+
+#container {
+    height: 400px;
+    width: 550px;
+    background-color: #9DD2EA;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 0px 0px #009de4;
+    /* box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color]
+    */
+    position: relative;
+}
+
+#score {
+    background-color: #F1FF92;
+    color: #888E5F;
+    padding: 10px;
+    position: absolute; /*Note: the first parent's position (div container) should be relative*/
+    left: 500px;
+    box-shadow: 4px 4px 0px 0px #9da853;
+}
+
+#correct {
+    position: absolute;
+    left: 250px;
+    background-color: #42e252;
+    color: white;
+    padding: 10px;
+    display: none; /*Will display this element when user answers correctly*/
+}
+
+#wrong {
+    position: absolute;
+    left: 250px;
+    background-color: #de401a;
+    color: white;
+    padding: 10px;
+    display: none; /*Will display this element when the answer is wrong*/
+}
