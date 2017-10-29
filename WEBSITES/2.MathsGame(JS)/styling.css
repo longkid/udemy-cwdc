@@ -37,6 +37,7 @@ html {
     color: white;
     padding: 10px;
     display: none; /*Will display this element when user answers correctly*/
+    transition: display 1s;
 }
 
 #wrong {
@@ -46,6 +47,7 @@ html {
     color: white;
     padding: 10px;
     display: none; /*Will display this element when the answer is wrong*/
+    transition: display 1s;
 }
 
 #question {
@@ -60,6 +62,7 @@ html {
     font-family: cursive, sans-serif;
     text-align: center;
     color: black;
+    line-height: 150px;
 }
 
 #instruction {
