@@ -1,14 +1,8 @@
-        // reload page
-    // if we are not playing
-        // reduce time by 1 sec in loop
-            // timeleft?
-                // yes -> continue
-                // no -> game over
-        // generate new Q&A
-
 var playing = false;
 var score;
 var timeRemaining;
+var correctAnswer;
+
 // if we click on the start/reset
 document.getElementById("startreset").onclick = function() {
     // if we are playing
@@ -19,6 +13,7 @@ document.getElementById("startreset").onclick = function() {
         hide("gameover");
         // set score to 0
         score = 0;
+        document.getElementById("scorevalue").innerHTML = score;
         
         // show countdown box
         timeRemaining = 60;
@@ -29,9 +24,12 @@ document.getElementById("startreset").onclick = function() {
         
         // show countdown box
         startCountdown();
+        
+        generateNewQA();
     }
 }
 
+// reduce time by 1 sec in loop
 function startCountdown() {
     action = setInterval(function() {
         timeRemaining--;
@@ -58,8 +56,61 @@ function show(id) {
 function hide(id) {
     document.getElementById(id).style.display = "none";
 }
+
+function generateNewQA() {
+    var x = Math.round(Math.random() * 9) + 1;
+    var y = Math.round(Math.random() * 9) + 1;
+    correctAnswer = x * y;
+    document.getElementById("question").innerHTML = x + " x " + y;
+    var correctBox = Math.round(Math.random() * 3) + 1;
+    // Show correctAnswer on correctBox
+    document.getElementById("box"+correctBox).innerHTML = correctAnswer;
+    // Fill other boxes with wrong answers
+    var answers = [correctAnswer];
+    for (i = 1; i < 5; i++) {
+        if (i != correctBox) {
+            // Generate wrong answer
+            var wrongAnswer;
+            do {
+                wrongAnswer = Math.round(Math.random() * 99) + 1;   
+            } while (answers.indexOf(wrongAnswer) > -1);// while wrongAnswer existed in the answers already
+            document.getElementById("box"+i).innerHTML = wrongAnswer;
+            answers.push(wrongAnswer);
+        }
+    }
+}
+
+for (i = 1; i < 5; i++) {
+    // Add event handler for each box
+    document.getElementById("box" + i).onclick = function() {
+        // if we are playing
+        if (playing) {
+            if (this.innerHTML == correctAnswer) { // correct answer
+                // increase score
+                score++;
+                document.getElementById("scorevalue").innerHTML = score;
+                // show correct box for 1 sec
+                show("correct");
+                hide("wrong");
+                setTimeout(function() {
+                    hide("correct");
+                }, 1000);
+                
+                // generate new Q&A
+                generateNewQA();
+            } else { // wrong answer
+                // show wrong box for 1 sec
+                show("wrong");
+                hide("correct");
+                setTimeout(function() {
+                    hide("wrong");
+                }, 1000);
+            }  
+        }
+    }
+}
 /*
-/////////////////////////////////////////////////////
+///////////////////////// Below is my own code ////////////////////////////
 var score = 0;
 function startReset() {
     window.console.log("User click startreset");
