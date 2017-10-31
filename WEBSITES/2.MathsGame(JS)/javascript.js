@@ -1,5 +1,6 @@
 var playing = false;
 var score;
+var action;
 var timeRemaining;
 var correctAnswer;
 
@@ -9,14 +10,16 @@ document.getElementById("startreset").onclick = function() {
     if (playing) {
         location.reload(); //reload page
     } else {
+        // change mode to playing
         playing = true;
         hide("gameover");
-        // set score to 0
+        // reset score to 0
         score = 0;
         document.getElementById("scorevalue").innerHTML = score;
         
         // show countdown box
         timeRemaining = 60;
+        document.getElementById("timeremainingvalue").innerHTML = timeRemaining;
         show("timeremaining");
         
         // change button to reset
@@ -34,11 +37,13 @@ function startCountdown() {
     action = setInterval(function() {
         timeRemaining--;
         document.getElementById("timeremainingvalue").innerHTML = timeRemaining;
-        if (timeRemaining == 0) {
-            // Game Over!
+        if (timeRemaining == 0) { // Game Over!
             stopCountdown();
             show("gameover");
             document.getElementById("gameover").innerHTML = "<p>Game Over!</p><p>Your score is " + score + ".</p>";
+            hide("timeremaining");
+            hide("correct");
+            hide("wrong");
             document.getElementById("startreset").innerHTML = "Start Game";
             playing = false;
         }
@@ -57,6 +62,7 @@ function hide(id) {
     document.getElementById(id).style.display = "none";
 }
 
+// generate a new question and multiple answers
 function generateNewQA() {
     var x = Math.round(Math.random() * 9) + 1;
     var y = Math.round(Math.random() * 9) + 1;
@@ -80,13 +86,14 @@ function generateNewQA() {
     }
 }
 
+// Clicking on an answer box
 for (i = 1; i < 5; i++) {
     // Add event handler for each box
     document.getElementById("box" + i).onclick = function() {
         // if we are playing
         if (playing) {
             if (this.innerHTML == correctAnswer) { // correct answer
-                // increase score
+                // increase score by 1
                 score++;
                 document.getElementById("scorevalue").innerHTML = score;
                 // show correct box for 1 sec

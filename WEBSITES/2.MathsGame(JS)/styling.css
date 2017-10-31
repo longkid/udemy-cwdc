@@ -2,6 +2,9 @@
 html {
     height: 100%;
     background: radial-gradient(circle, #fff, #ccc);
+    background: -webkit-radial-gradient(circle, #fff, #ccc);
+    background: -o-radial-gradient(circle, #fff, #ccc);
+    background: -moz-radial-gradient(circle, #fff, #ccc);
 }
 
 #container {
@@ -37,7 +40,6 @@ html {
     color: white;
     padding: 10px;
     display: none; /*Will display this element when user answers correctly*/
-    transition: display 1s;
 }
 
 #wrong {
@@ -47,7 +49,6 @@ html {
     color: white;
     padding: 10px;
     display: none; /*Will display this element when the answer is wrong*/
-    transition: display 1s;
 }
 
 #question {
@@ -70,11 +71,11 @@ html {
     height: 50px;
     margin: 10px auto;
     background-color: #B481D9;
+    text-align: center;
+    line-height: 50px;
     box-shadow: 0px 4px #8153a8;
     -moz-box-shadow: 0px 4px #8153a8;
     -webkit-box-shadow: 0px 4px #8153a8;
-    text-align: center;
-    line-height: 50px;
 }
 
 #choices {
@@ -86,14 +87,14 @@ html {
 .box {
     width: 85px;
     height: 85px;
+    background-color: white;
     float: left;
     margin-right: 36px;
-    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
     box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    cursor: pointer;
     text-align: center;
     line-height: 80px;
     font-size: 2em;
@@ -129,11 +130,11 @@ html {
     margin: 0px auto;
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    cursor: pointer;
     box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    cursor: pointer;
     text-align: center;
     position: relative;
     transition: all 0.2s;
@@ -146,14 +147,14 @@ html {
 #timeremaining {
     width: 155px;
     padding: 10px;
-    background-color: rgba(181, 235, 36, 0.8);
-    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
-    -webkit-box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
     position: absolute;
     top: 400px;
     left: 400px;
+    background-color: rgba(181, 235, 36, 0.8);
+    border-radius: 5px;
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
 /*    visibility: hidden;*/
     display: none;
 }
@@ -162,10 +163,13 @@ html {
     width: 500px;
     height: 200px;
     background: linear-gradient(#F3CA6B, #F3706C);
+    background: -webkit-linear-gradient(#F3CA6B, #F3706C);
+    background: -o-linear-gradient(#F3CA6B, #F3706C);
+    background: -moz-linear-gradient(#F3CA6B, #F3706C);
     color: white;
+    font-size: 2.5em;
     text-align: center;
     text-transform: uppercase;
-    font-size: 2.5em;
     position: absolute;
     top: 100px;
     left: 45px;
