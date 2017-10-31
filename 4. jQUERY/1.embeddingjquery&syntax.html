@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>embedding jQuery and syntax</title>
+<!--        <script src="js/jquery-1.12.4.min.js"></script>-->
+<!--        Use Google Hosted Library may be faster than the above way-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body>
+        <p>jQuery</p>
+        <script>
+//            $(document).ready(function() {
+//                $("p").hide();
+//            });
+//            Similar to above commented code
+            $(function() {
+                $("p").hide();
+            });
+        </script>
+    </body>
+</html>
