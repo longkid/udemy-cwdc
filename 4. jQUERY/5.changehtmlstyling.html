@@ -8,7 +8,7 @@
                 background-color: #3B5998;
                 color: white;
                 height: 100px;
-                width: auto;
+                width: 300px;
             }
             .yellowbox {
                 background-color: #E0D74F;
@@ -23,20 +23,20 @@
             .great {
                 background-color: aqua;
             }
+            .sans-serif {
+                font-family: sans-serif;
+            }
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     </head>
     
     <body>
-        <button id="changeFacebook">Change Facebook text</button>
-        <button id="changeApple">Change Apple HTML</button>
-        <button id="changeInput">Change Input value</button>
-        <button id="changeMicrosoftLink">Change Microsoft Link</button>
-        <button id="addText">Add text</button>
+        <button id="changeFacebook">Change Facebook</button>
+        <button id="changeApple">Change Apple</button>
         <div class="bluebox" id="facebook">
             <p>Facebook is <span class="great">great</span>.</p>
         </div>
-        <div class="yellowbox" id="apple">
+        <div class="yellowbox sans-serif" id="apple">
             <p>Apple.</p>
         </div>
         <div class="greenbox" id="microsoft">
@@ -47,22 +47,21 @@
         
         <script>
             $(document).ready(function() {
+                // Handle click on "Change Facebook" button
                 $("#changeFacebook").click(function() {
-                    $("#facebook").text("This is facebook div.");
+//                    $("#facebook").css("width", 300);
+                    $("#facebook").css("width", $("#facebook").width() + (Math.random() * 100 - 50));
+//                    window.alert($("#facebook").innerHeight());
+//                    window.alert($("#facebook").outerHeight());
+                    $("#facebook").addClass("greenbox");
                 });
+                // Handle click on "Change Apple" button
                 $("#changeApple").click(function() {
-                    $("#apple").html("<p>This is apple div.</p><p>New iOS available</p>");
+                    $("#apple").removeClass("sans-serif");
                 });
-                $("#changeInput").click(function() {
-                    $("input").val("Lam");
-                });
-                $("#changeMicrosoftLink").click(function() {
-                    $("#microsoftLink").attr({"href":"http://www.google.com", "title":"google"});
-                });
-                $("#addText").click(function() {
-//                    $("#microsoft").append("<ul><li>BMW</li><li>Audi</li><li>Mercedes</li></ul>");
-//                    $("#microsoft").prepend("<ul><li>BMW</li><li>Audi</li><li>Mercedes</li></ul>");
-                    $("#microsoftParagraph").after("<p>New paragraph.</p>");
+                // Handle click on apple div
+                $("#apple").click(function() {
+                    $("#apple").removeClass("sans-serif");
                 });
             });
         </script>
