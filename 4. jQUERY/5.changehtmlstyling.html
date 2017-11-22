@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>change content and attributes</title>
+        <title>change styling</title>
         <style>
             .bluebox {
                 background-color: #3B5998;
@@ -21,7 +21,7 @@
                 width: auto;
             }
             .great {
-                background-color: aqua;
+                background-color: #581592;
             }
             .sans-serif {
                 font-family: sans-serif;
@@ -33,8 +33,11 @@
     <body>
         <button id="changeFacebook">Change Facebook</button>
         <button id="changeApple">Change Apple</button>
+        <button id="changeMicrosoft">Change Microsoft</button>
+        <button id="showMicrosoft">Show Microsoft</button>
+        <button id="changeGreat">Change Great</button>
         <div class="bluebox" id="facebook">
-            <p>Facebook is <span class="great">great</span>.</p>
+            <p>Facebook is <span class="great" id="great">great</span>.</p>
         </div>
         <div class="yellowbox sans-serif" id="apple">
             <p>Apple.</p>
@@ -62,6 +65,20 @@
                 // Handle click on apple div
                 $("#apple").click(function() {
                     $("#apple").removeClass("sans-serif");
+                    $("#apple").css("position", "absolute");
+                    $("#apple").css({"top": Math.random()*200, "left": Math.random()*200, "background-color": 'rgb(' + Math.floor(Math.random()*256) + ', ' + Math.floor(Math.random()*256) + ', ' + Math.floor(Math.random()*256) + ')'});
+                });
+                $("#changeMicrosoft").click(function() {
+                    $("#microsoft").toggleClass("greenbox");
+                });
+                $("#microsoft").dblclick(function() {
+                    $(this).hide();
+                });
+                $("#showMicrosoft").click(function() {
+                    $("#microsoft").show(); 
+                });
+                $("#changeGreat").click(function() {
+                    $("#great").wrap("<div></div>")
                 });
             });
         </script>
